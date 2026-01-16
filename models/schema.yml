@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: silver_fact_sales
+    columns:
+      - name: sale_id
+        tests:
+          - unique
+          - not_null
+      - name: cleaned_quantity
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: discount
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "BETWEEN 0 AND 1"
+      - name: cleaned_revenue
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "> 0"

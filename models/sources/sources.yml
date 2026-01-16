@@ -1,0 +1,12 @@
+
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: fact_sales
+      - name: dim_customer
+      - name: dim_product
+      - name: dim_time
+      - name: dim_location
